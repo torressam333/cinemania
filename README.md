@@ -1,8 +1,4 @@
-# React + Vite
+# Cinemania (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A React 18 project meant to work as a movie directory.
+It will pull in movie information dynamically and will use react hooks to properly manage component state and data retrieval.
