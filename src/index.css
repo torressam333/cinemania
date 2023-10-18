@@ -1,3 +1,7 @@
+@font-face {
+  font-family: 'Lato ';
+  src: url('./assets/fonts/Lato.woff2');
+}
 * {
   margin: 0;
   padding: 0;
@@ -7,4 +11,5 @@
 body {
   background: #101010;
   color: #fff;
+  font-family: 'Lato', sans-serif;
 }
