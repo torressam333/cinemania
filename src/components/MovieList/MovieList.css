@@ -37,3 +37,9 @@
   font-family: inherit;
   height: 30px;
 }
+
+.movie_cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}

@@ -1,6 +1,6 @@
 import './App.css';
 import NavBar from './components/Navbar/NavBar';
-import MovieList from './components/Navbar/MovieList/MovieList';
+import MovieList from './components/MovieList/MovieList';
 
 const App = () => {
   return (

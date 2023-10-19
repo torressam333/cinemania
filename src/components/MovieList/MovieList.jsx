@@ -1,5 +1,6 @@
 import './MovieList.css';
-import FireEmoji from '../../../assets/emojis/fire.png';
+import FireEmoji from '../../assets/emojis/fire.png';
+import MovieCard from './MovieCard';
 
 const MovieList = () => {
   return (
@@ -26,7 +27,9 @@ const MovieList = () => {
           </select>
         </div>
       </header>
-      <div className='movie_cards'></div>
+      <div className='movie_cards'>
+        <MovieCard />
+      </div>
     </section>
   );
 };
