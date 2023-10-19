@@ -1,11 +1,14 @@
 import './App.css';
 import NavBar from './components/Navbar/NavBar';
+import MovieList from './components/Navbar/MovieList/MovieList';
 
 const App = () => {
   return (
     <div className='app'>
       <NavBar />
-      <main>MAIN CONTENT HERE</main>
+      <main>
+        <MovieList />
+      </main>
     </div>
   );
 };

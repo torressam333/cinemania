@@ -13,3 +13,9 @@ body {
   color: #fff;
   font-family: 'Lato', sans-serif;
 }
+
+/* Custom css class */
+.align_flex_center {
+  display: flex;
+  align-items: center;
+}
