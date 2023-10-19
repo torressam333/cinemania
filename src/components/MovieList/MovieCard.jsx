@@ -1,26 +1,28 @@
 import './MovieCard.css';
 import StarEmoji from '../../assets/emojis/star.png';
 
-const MovieCard = () => {
+const MovieCard = ({ movie }) => {
+  const {
+    title,
+    poster_path,
+    release_date,
+    vote_average,
+    vote_count,
+    overview,
+  } = movie;
   return (
     <a href='' className='movie_card'>
-      <img
-        src='https://m.media-amazon.com/images/I/71eHZFw+GlL._AC_SL1000_.jpg'
-        alt='end game movie poster'
-        className='movie_poster'
-      />
+      <img src={movie.poster_path} alt={title} className='movie_poster' />
       <div className='movie_details'>
-        <h3 className='movie_details_heading'>Movie Name</h3>
+        <h3 className='movie_details_heading'>{title}</h3>
         <div className='align_flex_center movie_date_rate'>
-          <p>10-20-2014</p>
+          <p>{release_date}</p>
           <p>
-            8.5 <img src={StarEmoji} alt='Star Emoji' className='card_emoji' />
+            {vote_average}{' '}
+            <img src={StarEmoji} alt='Star Emoji' className='card_emoji' />
           </p>
         </div>
-        <p className='movie_description'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati aut
-          ex dignissimos modi impedit ea.
-        </p>
+        <p className='movie_description'>{overview.slice(0, 100) + '...'}</p>
       </div>
     </a>
   );

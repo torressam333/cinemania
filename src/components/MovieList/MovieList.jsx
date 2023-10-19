@@ -1,8 +1,31 @@
 import './MovieList.css';
 import FireEmoji from '../../assets/emojis/fire.png';
 import MovieCard from './MovieCard';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 const MovieList = () => {
+  // env vars in vite need `VITE` prefix
+  const apiKey = import.meta.env.VITE_APP_TMBD_KEY;
+  const apiUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`;
+  const [movies, setMovies] = useState([]);
+
+  const fetchMovies = async () => {
+    try {
+      const response = await fetch(apiUrl);
+
+      const data = await response.json();
+
+      setMovies(data.results);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchMovies();
+  }, []);
+
   return (
     <section className='movie_list'>
       <header className='align_flex_center movie_list_header'>
@@ -28,7 +51,9 @@ const MovieList = () => {
         </div>
       </header>
       <div className='movie_cards'>
-        <MovieCard />
+        {movies.map((movie) => (
+          <MovieCard movie={movie} key={movie.id} />
+        ))}
       </div>
     </section>
   );
