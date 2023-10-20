@@ -40,6 +40,12 @@ const MovieList = () => {
     }
   };
 
+  const dynamicItemClass = (rating) => {
+    return rating === minRating
+      ? "movie_filter_item active"
+      : "movie_filter_item";
+  };
+
   useEffect(() => {
     fetchMovies();
   }, []);
@@ -53,16 +59,13 @@ const MovieList = () => {
         </h2>
         <div className="align_flex_center movie_list_fs">
           <ul className="align_flex_center movie_filter">
-            <li
-              className="movie_filter_item active"
-              onClick={() => handleFilter(6)}
-            >
+            <li className={dynamicItemClass(6)} onClick={() => handleFilter(6)}>
               6+ Star
             </li>
-            <li className="movie_filter_item" onClick={() => handleFilter(7)}>
+            <li className={dynamicItemClass(7)} onClick={() => handleFilter(7)}>
               7+ Star
             </li>
-            <li className="movie_filter_item" onClick={() => handleFilter(8)}>
+            <li className={dynamicItemClass(8)} onClick={() => handleFilter(8)}>
               8+ Star
             </li>
           </ul>
