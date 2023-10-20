@@ -10,6 +10,7 @@ const MovieList = () => {
   const apiUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`;
   const [movies, setMovies] = useState([]);
   const [minRating, setMinRating] = useState(0);
+  const [filterMovies, setFilterMovies] = useState([]);
 
   const fetchMovies = async () => {
     try {
@@ -18,19 +19,25 @@ const MovieList = () => {
       const data = await response.json();
 
       setMovies(data.results);
+      setFilterMovies(data.results);
     } catch (error) {
       console.error(error);
     }
   };
 
   const handleFilter = (rating) => {
-    setMinRating(rating);
+    // Reset to default rating
+    if (rating === minRating) {
+      setMinRating(0);
+      setFilterMovies(movies);
+    } else {
+      setMinRating(rating);
+      const filteredMovies = movies.filter(
+        (movie) => movie.vote_average >= rating
+      );
 
-    const filteredMovies = movies.filter(
-      (movie) => movie.vote_average >= minRating
-    );
-
-    setMovies(filteredMovies);
+      setFilterMovies(filteredMovies);
+    }
   };
 
   useEffect(() => {
@@ -71,8 +78,10 @@ const MovieList = () => {
         </div>
       </header>
       <div className="movie_cards">
-        {movies &&
-          movies.map((movie) => <MovieCard movie={movie} key={movie.id} />)}
+        {filterMovies &&
+          filterMovies.map((movie) => (
+            <MovieCard movie={movie} key={movie.id} />
+          ))}
       </div>
     </section>
   );
