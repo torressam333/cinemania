@@ -3,6 +3,7 @@ import FireEmoji from "../../assets/emojis/fire.png";
 import MovieCard from "./MovieCard";
 import { useEffect } from "react";
 import { useState } from "react";
+import FilterGroup from "./FilterGroup";
 
 const MovieList = () => {
   // env vars in vite need `VITE` prefix
@@ -54,21 +55,14 @@ const MovieList = () => {
     <section className="movie_list">
       <header className="align_flex_center movie_list_header">
         <h2 className="align_flex_center movie_list_heading">
-          Popular{" "}
+          Popular
           <img src={FireEmoji} alt="Fire emoji" className="navbar_emoji" />
         </h2>
         <div className="align_flex_center movie_list_fs">
-          <ul className="align_flex_center movie_filter">
-            <li className={dynamicItemClass(6)} onClick={() => handleFilter(6)}>
-              6+ Star
-            </li>
-            <li className={dynamicItemClass(7)} onClick={() => handleFilter(7)}>
-              7+ Star
-            </li>
-            <li className={dynamicItemClass(8)} onClick={() => handleFilter(8)}>
-              8+ Star
-            </li>
-          </ul>
+          <FilterGroup
+            onRatingClick={handleFilter}
+            dynamicItemClass={dynamicItemClass}
+          />
           <select name="" id="" className="movie_sorting">
             <option value="">Sort By</option>
             <option value="">Release Date</option>
