@@ -62,6 +62,7 @@ const MovieList = () => {
           <FilterGroup
             onRatingClick={handleFilter}
             dynamicItemClass={dynamicItemClass}
+            ratings={[6, 7, 8]}
           />
           <select name="" id="" className="movie_sorting">
             <option value="">Sort By</option>
