@@ -1,3 +1,8 @@
+/**
+ *
+ * @param {*} param0
+ * @returns
+ */
 const FilterGroup = ({ onRatingClick, dynamicItemClass, ratings }) => {
   return (
     <ul className="align_flex_center movie_filter">
