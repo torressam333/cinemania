@@ -12,6 +12,10 @@ const MovieList = () => {
   const [movies, setMovies] = useState([]);
   const [minRating, setMinRating] = useState(0);
   const [filterMovies, setFilterMovies] = useState([]);
+  const [sort, setSort] = useState({
+    by: "default",
+    order: "asc"
+  });
 
   const fetchMovies = async () => {
     try {
@@ -47,6 +51,12 @@ const MovieList = () => {
       : "movie_filter_item";
   };
 
+  const handleSort = (e) => {
+    const { name, value } = e.target;
+
+    setSort((prev) => ({ ...prev, [name]: value }));
+  };
+
   useEffect(() => {
     fetchMovies();
   }, []);
@@ -64,14 +74,26 @@ const MovieList = () => {
             dynamicItemClass={dynamicItemClass}
             ratings={[6, 7, 8]}
           />
-          <select name="" id="" className="movie_sorting">
-            <option value="">Sort By</option>
-            <option value="">Release Date</option>
-            <option value="">Rating</option>
+          <select
+            name="by"
+            id="sort"
+            onChange={handleSort}
+            value={sort.by}
+            className="movie_sorting"
+          >
+            <option value="default">Sort By</option>
+            <option value="release_date">Release Date</option>
+            <option value="vote_average">Rating</option>
           </select>
-          <select name="" id="" className="movie_sorting">
-            <option value="">Ascending</option>
-            <option value="">Descending</option>
+          <select
+            name="order"
+            id="order"
+            onChange={handleSort}
+            className="movie_sorting"
+            value={sort.order}
+          >
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
           </select>
         </div>
       </header>
