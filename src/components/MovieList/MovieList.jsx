@@ -1,8 +1,11 @@
+// Dep imports
+import _ from 'lodash';
+import { useEffect, useState } from 'react';
+
+// Repo imports
 import './MovieList.css';
 import FireEmoji from '../../assets/emojis/fire.png';
 import MovieCard from './MovieCard';
-import { useEffect } from 'react';
-import { useState } from 'react';
 import FilterGroup from './FilterGroup';
 
 const MovieList = () => {
