@@ -1,8 +1,8 @@
 import React from 'react';
 
 import './DarkMode.css';
-import Sun from './Sun.svg?react';
-import Moon from './Moon.svg?react';
+import Sun from '../../assets/Sun.svg?react';
+import Moon from '../../assets/Moon.svg?react';
 
 const DarkMode = () => {
   return (
