@@ -39,7 +39,7 @@
 
 .movie_details_heading {
   font-size: 1em;
-  color: #bebe15;
+  color: var(--heading_color);
 }
 
 .movie_date_rate {
@@ -47,7 +47,7 @@
   font-size: 12px;
   font-weight: 500;
   margin: 5px 0;
-  color: #bebe15;
+  color: var(--heading_color);
 }
 
 .card_emoji {

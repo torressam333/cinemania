@@ -7,7 +7,7 @@
 
 .movie_list_heading {
   font-size: 1.5em;
-  color: #bebe15;
+  color: var(--heading_color);
 }
 
 /* UL */
@@ -22,7 +22,7 @@
 }
 
 .movie_filter_item.active {
-  border-bottom: 1px solid #bebe15;
+  border-bottom: 1px solid var(--heading_color);
   font-weight: 500;
 }
 
