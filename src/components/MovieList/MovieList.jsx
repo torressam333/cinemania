@@ -1,9 +1,9 @@
-import "./MovieList.css";
-import FireEmoji from "../../assets/emojis/fire.png";
-import MovieCard from "./MovieCard";
-import { useEffect } from "react";
-import { useState } from "react";
-import FilterGroup from "./FilterGroup";
+import './MovieList.css';
+import FireEmoji from '../../assets/emojis/fire.png';
+import MovieCard from './MovieCard';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import FilterGroup from './FilterGroup';
 
 const MovieList = () => {
   // env vars in vite need `VITE` prefix
@@ -13,8 +13,8 @@ const MovieList = () => {
   const [minRating, setMinRating] = useState(0);
   const [filterMovies, setFilterMovies] = useState([]);
   const [sort, setSort] = useState({
-    by: "default",
-    order: "asc"
+    by: 'default',
+    order: 'asc',
   });
 
   const fetchMovies = async () => {
@@ -47,12 +47,14 @@ const MovieList = () => {
 
   const dynamicItemClass = (rating) => {
     return rating === minRating
-      ? "movie_filter_item active"
-      : "movie_filter_item";
+      ? 'movie_filter_item active'
+      : 'movie_filter_item';
   };
 
   const handleSort = (e) => {
     const { name, value } = e.target;
+
+    console.log(name, value);
 
     setSort((prev) => ({ ...prev, [name]: value }));
   };
@@ -62,42 +64,42 @@ const MovieList = () => {
   }, []);
 
   return (
-    <section className="movie_list">
-      <header className="align_flex_center movie_list_header">
-        <h2 className="align_flex_center movie_list_heading">
+    <section className='movie_list'>
+      <header className='align_flex_center movie_list_header'>
+        <h2 className='align_flex_center movie_list_heading'>
           Popular
-          <img src={FireEmoji} alt="Fire emoji" className="navbar_emoji" />
+          <img src={FireEmoji} alt='Fire emoji' className='navbar_emoji' />
         </h2>
-        <div className="align_flex_center movie_list_fs">
+        <div className='align_flex_center movie_list_fs'>
           <FilterGroup
             onRatingClick={handleFilter}
             dynamicItemClass={dynamicItemClass}
             ratings={[6, 7, 8]}
           />
           <select
-            name="by"
-            id="sort"
+            name='by'
+            id='sort'
             onChange={handleSort}
             value={sort.by}
-            className="movie_sorting"
+            className='movie_sorting'
           >
-            <option value="default">Sort By</option>
-            <option value="release_date">Release Date</option>
-            <option value="vote_average">Rating</option>
+            <option value='default'>Sort By</option>
+            <option value='release_date'>Release Date</option>
+            <option value='vote_average'>Rating</option>
           </select>
           <select
-            name="order"
-            id="order"
+            name='order'
+            id='order'
             onChange={handleSort}
-            className="movie_sorting"
+            className='movie_sorting'
             value={sort.order}
           >
-            <option value="asc">Ascending</option>
-            <option value="desc">Descending</option>
+            <option value='asc'>Ascending</option>
+            <option value='desc'>Descending</option>
           </select>
         </div>
       </header>
-      <div className="movie_cards">
+      <div className='movie_cards'>
         {filterMovies &&
           filterMovies.map((movie) => (
             <MovieCard movie={movie} key={movie.id} />
