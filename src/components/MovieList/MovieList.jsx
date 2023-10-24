@@ -56,15 +56,19 @@ const MovieList = () => {
 
   const handleSort = (e) => {
     const { name, value } = e.target;
-
-    console.log(name, value);
-
     setSort((prev) => ({ ...prev, [name]: value }));
   };
 
   useEffect(() => {
     fetchMovies();
   }, []);
+
+  useEffect(() => {
+    if (sort.by !== 'default') {
+      const sortedMovies = _.orderBy(filterMovies, [sort.by], [sort.order]);
+      setFilterMovies(sortedMovies);
+    }
+  }, [sort]);
 
   return (
     <section className='movie_list'>
