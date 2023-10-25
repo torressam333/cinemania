@@ -4,14 +4,13 @@ import { useEffect, useState } from 'react';
 
 // Repo imports
 import './MovieList.css';
-import FireEmoji from '../../assets/emojis/fire.png';
 import MovieCard from './MovieCard';
 import FilterGroup from './FilterGroup';
 
-const MovieList = () => {
+const MovieList = ({ movieType, title, emoji }) => {
   // env vars in vite need `VITE` prefix
   const apiKey = import.meta.env.VITE_APP_TMBD_KEY;
-  const apiUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`;
+  const apiUrl = `https://api.themoviedb.org/3/movie/${movieType}?api_key=${apiKey}`;
   const [movies, setMovies] = useState([]);
   const [minRating, setMinRating] = useState(0);
   const [filterMovies, setFilterMovies] = useState([]);
@@ -74,8 +73,8 @@ const MovieList = () => {
     <section className='movie_list'>
       <header className='align_flex_center movie_list_header'>
         <h2 className='align_flex_center movie_list_heading'>
-          Popular
-          <img src={FireEmoji} alt='Fire emoji' className='navbar_emoji' />
+          {title}
+          <img src={emoji} alt={`${emoji} icon`} className='navbar_emoji' />
         </h2>
         <div className='align_flex_center movie_list_fs'>
           <FilterGroup
