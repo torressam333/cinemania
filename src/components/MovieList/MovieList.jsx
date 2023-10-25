@@ -70,7 +70,7 @@ const MovieList = ({ movieType, title, emoji }) => {
   }, [sort]);
 
   return (
-    <section className='movie_list'>
+    <section className='movie_list' id={movieType}>
       <header className='align_flex_center movie_list_header'>
         <h2 className='align_flex_center movie_list_heading'>
           {title}
