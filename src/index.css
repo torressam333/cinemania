@@ -10,6 +10,10 @@
   --heading_color: #c5c511;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @font-face {
   font-family: 'Lato ';
   src: url('./assets/fonts/Lato.woff2');
