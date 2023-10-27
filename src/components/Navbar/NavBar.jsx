@@ -14,7 +14,7 @@ const NavBar = () => {
           Popular <img src={Fire} alt='fire emoji' className='navbar_emoji' />
         </a>
         <a href='#top_rated'>
-          Top Rated{' '}
+          Top Rated
           <img
             src={GlowingStar}
             alt='glowing star emoji'
@@ -22,7 +22,7 @@ const NavBar = () => {
           />
         </a>
         <a href='#upcoming'>
-          Upcoming{' '}
+          Upcoming
           <img
             src={Celebrate}
             alt='party face emoji'

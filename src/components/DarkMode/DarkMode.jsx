@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-
 import './DarkMode.css';
 import Sun from '../../assets/Sun.svg?react';
 import Moon from '../../assets/Moon.svg?react';
