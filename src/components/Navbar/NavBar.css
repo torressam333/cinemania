@@ -26,6 +26,10 @@
   padding: 0 0.7em;
 }
 
+.navbar_links > a.active {
+  font-weight: 700;
+}
+
 .navbar_emoji {
   width: 1.2em;
   height: 1.2em;
