@@ -60,7 +60,7 @@ const MovieList = ({ movieType, title, emoji }) => {
 
   useEffect(() => {
     fetchMovies();
-  }, []);
+  }, [movieType]);
 
   useEffect(() => {
     if (sort.by !== 'default') {
