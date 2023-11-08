@@ -1,18 +1,13 @@
 import './MovieCard.css';
 import StarEmoji from '../../assets/emojis/star.png';
+import { Link } from 'react-router-dom';
 
 const MovieCard = ({ movie }) => {
   const { id, title, poster_path, release_date, vote_average, overview } =
     movie;
 
-  console.log(vote_average);
-
   return (
-    <a
-      href={`https://www.themoviedb.org/movie/${id}`}
-      className='movie_card'
-      target='_blank'
-    >
+    <Link to={`/movie/${id}`} className='movie_card'>
       <img
         src={`https://image.tmdb.org/t/p/w500${poster_path}`}
         alt={title}
@@ -30,7 +25,7 @@ const MovieCard = ({ movie }) => {
         </div>
         <p className='movie_description'>{overview.slice(0, 100) + '...'}</p>
       </div>
-    </a>
+    </Link>
   );
 };
 

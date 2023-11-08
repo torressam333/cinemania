@@ -4,6 +4,7 @@ import MovieList from './components/MovieList/MovieList';
 import FireEmoji from './assets/emojis/fire.png';
 import StarEmoji from './assets/emojis/star.png';
 import PartyEmoji from './assets/emojis/partying-face.png';
+import SingleMovie from './components/MovieList/SingleMovie';
 import { Route, Routes } from 'react-router-dom';
 
 const App = () => {
@@ -42,6 +43,7 @@ const App = () => {
               />
             }
           />
+          <Route path='/movie/:id' element={<SingleMovie />} />
         </Routes>
       </main>
     </div>
